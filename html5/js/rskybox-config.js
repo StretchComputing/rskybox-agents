@@ -77,6 +77,10 @@ var RSKYBOX = (function (r, $) {
           name = '',
           user = r.session && r.session.getEntity(r.session.keys.currentUser);
 
+        if (!user) {
+          return;
+        }
+
         if (user.firstName) { name += user.firstName + ' '; }
         if (user.lastName) { name += user.lastName; }
         if (name) { name += ', '; }
@@ -116,7 +120,7 @@ var RSKYBOX = (function (r, $) {
       // Levels in increasing value are: error, warn, info, debug, local, off.
       getServerLevel: function () {
         try {
-          return r.log.getLevels().error;
+          return r.log.getLevels().warn;
         } catch (e) {
           window.console.error(e, 'RSKYBOX.log.getServerLevel');
         }
