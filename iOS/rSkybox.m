@@ -44,7 +44,7 @@ static NSMutableArray *traceTimeStamps;
         NSMutableDictionary *tempDictionary = [[NSMutableDictionary alloc] init];
         NSDictionary *loginDict = [[NSDictionary alloc] init];
         
-        [tempDictionary setObject:USERID forKey:[rSkybox getUserId]];
+        [tempDictionary setObject:[rSkybox getUserId] forKey:@"userId"];
         [tempDictionary setObject:@"rTeam" forKey:@"application"];
         [tempDictionary setObject:versionNumber forKey:@"version"];
         
@@ -100,7 +100,7 @@ static NSMutableArray *traceTimeStamps;
         [tempDictionary setObject:logLevel forKey:@"logLevel"];
         [tempDictionary setObject:logMessage forKey:@"message"];
         
-        [tempDictionary setObject:USERID forKey:[rSkybox getUserId]];
+        [tempDictionary setObject:[rSkybox getUserId] forKey:@"userId"];
         
         //HardCoded at top of page
         [tempDictionary setObject:versionNumber forKey:@"version"];
@@ -221,7 +221,7 @@ static NSMutableArray *traceTimeStamps;
         
         [tempDictionary setObject:summary forKey:@"summary"];
         
-        [tempDictionary setObject:USERID forKey:[rSkybox getUserId]"];
+        [tempDictionary setObject:[rSkybox getUserId] forKey:@"userId"];
         [tempDictionary setObject:versionNumber forKey:@"version"];
         
         
@@ -315,7 +315,7 @@ static NSMutableArray *traceTimeStamps;
         
         [tempDictionary setObject:encodedRecordedData forKey:@"voice"];
         
-        [tempDictionary setObject:USERID forKey:[rSkybox getUserId]];
+        [tempDictionary setObject:[rSkybox getUserId] forKey:@"userId"];
         [tempDictionary setObject:versionNumber forKey:@"version"];
                 
         NSDate *today = [NSDate date];
