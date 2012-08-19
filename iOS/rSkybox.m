@@ -12,7 +12,6 @@
 #import "Encoder.h"
 //TODO: rSkybox import - import your App Delegate .h file
 
-
 static NSString *basicAuthUserName = @"token";
 static NSString *baseUrl = @"https://rskybox-stretchcom.appspot.com/rest/v1";
 static NSString *versionNumber = @"1.0";
@@ -29,6 +28,11 @@ static NSMutableArray *traceTimeStamps;
 
 @implementation rSkybox
 
++ (NSString *)getUserId{
+    //TODO: rSkybox userId - return instead a uniqiue identifier for this user
+    return @"replaceWithRealUserId";
+}
+
 + (NSDictionary *)createEndUser{
     
     NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionary];
@@ -40,8 +44,7 @@ static NSMutableArray *traceTimeStamps;
         NSMutableDictionary *tempDictionary = [[NSMutableDictionary alloc] init];
         NSDictionary *loginDict = [[NSDictionary alloc] init];
         
-        //TODO: rSkybox userId - change 'USERID' to a uniqiue identifier for this user
-        [tempDictionary setObject:USERID forKey:@"userId"];
+        [tempDictionary setObject:USERID forKey:[rSkybox getUserId]];
         [tempDictionary setObject:@"rTeam" forKey:@"application"];
         [tempDictionary setObject:versionNumber forKey:@"version"];
         
@@ -97,8 +100,7 @@ static NSMutableArray *traceTimeStamps;
         [tempDictionary setObject:logLevel forKey:@"logLevel"];
         [tempDictionary setObject:logMessage forKey:@"message"];
         
-        //TODO: rSkybox userId - replace USERID with this users unique identifier
-        [tempDictionary setObject:USERID forKey:@"userId"];
+        [tempDictionary setObject:USERID forKey:[rSkybox getUserId]];
         
         //HardCoded at top of page
         [tempDictionary setObject:versionNumber forKey:@"version"];
@@ -219,8 +221,7 @@ static NSMutableArray *traceTimeStamps;
         
         [tempDictionary setObject:summary forKey:@"summary"];
         
-        //TODO: rSkybox userId - change 'USERID' to a uniqiue identifier for this user
-        [tempDictionary setObject:USERID forKey:@"userId"];
+        [tempDictionary setObject:USERID forKey:[rSkybox getUserId]"];
         [tempDictionary setObject:versionNumber forKey:@"version"];
         
         
@@ -314,8 +315,7 @@ static NSMutableArray *traceTimeStamps;
         
         [tempDictionary setObject:encodedRecordedData forKey:@"voice"];
         
-        //TODO: rSkybox userId - change 'USERID' to a uniqiue identifier for this user
-        [tempDictionary setObject:USERID forKey:@"userId"];
+        [tempDictionary setObject:USERID forKey:[rSkybox getUserId]];
         [tempDictionary setObject:versionNumber forKey:@"version"];
                 
         NSDate *today = [NSDate date];
